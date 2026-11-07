@@ -1,0 +1,51 @@
+@font-face{font-family:"Outfit";src:url("/assets/fonts/Outfit-Bold.woff") format("woff");font-weight:700}
+@font-face{font-family:"Readex";src:url("/assets/fonts/ReadexPro-Regular.woff") format("woff");font-weight:400}
+@font-face{font-family:"Readex";src:url("/assets/fonts/ReadexPro-SemiBold.woff") format("woff");font-weight:600}
+:root{--ink:#0B0726;--panel:#140B3D;--line:rgba(207,195,255,.16);--text:#F6F4FF;--muted:#ADA5DB;--violet:#6D3BFF;--teal:#19E3B1;--amber:#FFB547;--coral:#FF6B7D}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+@font-face{font-family:"Alexandria";src:url("/assets/fonts/Alexandria-Bold.woff") format("woff");font-weight:700}
+body{margin:0;min-height:100vh;font-family:"Readex",system-ui,sans-serif;color:var(--text);
+  background:radial-gradient(900px 600px at 80% 0%,#24105E,transparent 70%),linear-gradient(165deg,#0D0830,#060414)}
+.muted{color:var(--muted)}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1.5px solid var(--line);border-radius:20px}
+.brand{display:flex;align-items:center;gap:10px;direction:ltr}
+.wordmark{font-family:"Outfit";font-weight:700;font-size:22px}
+.wordmark b{background:linear-gradient(90deg,var(--teal),#8F6BFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{margin-inline-start:6px;font-family:"Readex",sans-serif;padding:3px 10px;border-radius:999px;font-size:12px;color:var(--muted);border:1px solid var(--line)}
+.btn{height:44px;padding:0 20px;border:0;border-radius:999px;font:inherit;font-weight:600;color:#fff;cursor:pointer;
+  background:linear-gradient(100deg,#4A1FC4,var(--violet) 50%,#0FB89E);box-shadow:0 10px 30px rgba(109,59,255,.4)}
+.btn--ghost{background:rgba(255,255,255,.05);border:1.5px solid var(--line);box-shadow:none;height:40px;font-size:14px}
+.btn--ghost:hover{border-color:rgba(143,107,255,.6)}
+input,select{height:46px;padding:0 14px;border-radius:12px;border:1.5px solid var(--line);background:rgba(255,255,255,.05);color:#fff;font:inherit;outline:none}
+input:focus,select:focus{border-color:#8F6BFF;box-shadow:0 0 0 4px rgba(109,59,255,.18)}
+select option{color:#000}
+.err{padding:10px 12px;border-radius:10px;font-size:14px;color:#FFD3D9;background:rgba(255,107,125,.12);border:1px solid rgba(255,107,125,.35)}
+/* login */
+.login{min-height:100vh;display:grid;place-items:center;padding:16px}
+.login__card{width:min(400px,100%);padding:32px 28px;display:flex;flex-direction:column;gap:8px}
+.login__card h1{margin:18px 0 0;font-family:"Alexandria","Outfit";font-size:28px}
+.login__card p{margin:0 0 10px}
+.login__card label{font-size:14px;margin-top:6px}
+.login__card .btn{margin-top:14px}
+/* dashboard */
+.dash{width:min(1200px,100% - 32px);margin:0 auto;padding:22px 0 40px}
+.bar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:22px}
+.bar__actions{display:flex;flex-wrap:wrap;gap:8px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.stat{padding:18px 20px}
+.stat span{display:block;font-size:13px;color:var(--muted)}
+.stat strong{display:block;font-family:"Outfit";font-size:34px}
+.table-card{padding:16px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.tools input{flex:1;min-width:200px}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;white-space:nowrap}
+th,td{padding:12px 12px;text-align:start;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600;font-size:13px}
+tbody tr:hover{background:rgba(255,255,255,.03)}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600}
+.pill--pharmacy{color:var(--teal);background:rgba(25,227,177,.12)}
+.pill--supplier{color:var(--amber);background:rgba(255,181,71,.12)}
+.empty{padding:30px;text-align:center}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}

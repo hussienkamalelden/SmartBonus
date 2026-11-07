@@ -1,0 +1,9 @@
+# Cloudflare Pages config (used when deploying from GitHub)
+name = "smartbonus-waitlist"
+compatibility_date = "2026-06-01"
+pages_build_output_dir = "./public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "smartbonus-waitlist"
+database_id = "PASTE-YOUR-D1-DATABASE-ID-HERE"
