@@ -57,18 +57,11 @@
 
   <main class="hero">
     <div class="hero__intro">
-      <p class="eyebrow reveal" style="--d:0">
-        <span class="eyebrow__dot"></span> <span data-i18n="eyebrow">التسجيل المبكر متاح الآن</span>
-      </p>
-      <h1 class="hero__title reveal" style="--d:1" data-i18n-html="title">
-        صيدليتك على وشك أن تصبح <span class="grad">أذكى بكثير.</span>
-      </h1>
-      <p class="hero__sub reveal" style="--d:2" data-i18n="sub">
-        كل الموردين، كل الأسعار، كل البونص… مقارنة لك في ثانية واحدة. شاهد الإعلان في 60 ثانية واحجز مكانك قبل الإطلاق.
-      </p>
+      <h1 class="hero__title reveal" style="--d:0" data-i18n-html="title">صيدليتك… <span class="grad">أذكى.</span></h1>
+      <p class="hero__sub reveal" style="--d:1" data-i18n="sub">كل الموردين والأسعار والبونص… في ثانية واحدة.</p>
     </div>
 
-    <section class="player reveal" style="--d:3" aria-label="Smart Bonus video">
+    <section class="player reveal" style="--d:2" aria-label="Smart Bonus video">
       <div class="player__glow" aria-hidden="true"></div>
       <div class="player__frame is-loading" id="tilt">
         <video id="intro" preload="none" playsinline
@@ -106,7 +99,7 @@
       </div>
     </section>
 
-    <div class="hero__cta reveal" style="--d:4">
+    <div class="hero__cta reveal" style="--d:3">
       <button class="btn btn--primary btn--lg" data-open-waitlist data-role="pharmacy">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 21V8.5L12 3l8.5 5.5V21"/><path d="M9 21v-6h6v6M12 7.5v4M10 9.5h4"/></svg>
         <span data-i18n="ctaPharmacy">أنا صيدلية</span>
@@ -117,11 +110,6 @@
       </button>
     </div>
 
-    <ul class="perks reveal" style="--d:5">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l1.9 5.6a3 3 0 0 0 1.8 1.8l5.5 1.8-5.5 1.9a3 3 0 0 0-1.8 1.8L12 21.2l-1.9-5.5a3 3 0 0 0-1.8-1.8L2.8 12l5.5-1.8a3 3 0 0 0 1.8-1.8z"/></svg><span data-i18n="perk1">أفضل عرض في ثوانٍ</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="4.6"/><path d="M12 12l6-6"/></svg><span data-i18n="perk2">مزايدة حية بين الموردين</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l7.6 2.9v5.9c0 4.7-3.2 8.3-7.6 9.9-4.4-1.6-7.6-5.2-7.6-9.9V5.7z"/><path d="M8.6 12.2l2.4 2.4 4.4-4.6"/></svg><span data-i18n="perk3">الدفع بعد الاستلام فقط</span></li>
-    </ul>
   </main>
 
   <footer class="foot">
@@ -137,9 +125,7 @@
       </button>
 
       <div class="wl" id="wlForm">
-        <p class="eyebrow eyebrow--sm"><span class="eyebrow__dot"></span> <span data-i18n="mEyebrow">وصول مبكر</span></p>
         <h2 id="wlTitle" data-i18n="mTitle">احجز مكانك مبكرًا</h2>
-        <p class="wl__lead" data-i18n="mLead">كن من أوائل من يستخدم Smart Bonus، وسنتواصل معك فور الإطلاق.</p>
 
         <form id="form" novalidate>
           <fieldset class="seg">
@@ -172,7 +158,7 @@
             <span class="btn__label" data-i18n="submit">انضم لقائمة الانتظار</span>
             <span class="btn__spin" aria-hidden="true"></span>
           </button>
-          <p class="fine" data-i18n="fine">نستخدم بياناتك فقط للتواصل معك بخصوص Smart Bonus.</p>
+          <p class="fine" data-i18n-html="fine">نستخدم بياناتك فقط للتواصل معك بخصوص <span class="nw">Smart Bonus</span>.</p>
         </form>
       </div>
 

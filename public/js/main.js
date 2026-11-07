@@ -11,8 +11,8 @@
       docTitle: 'Smart Bonus | الطريقة الأذكى لتوريد الأدوية',
       navCta: 'انضم لقائمة الانتظار',
       eyebrow: 'التسجيل المبكر متاح الآن',
-      title: 'صيدليتك على وشك أن تصبح <span class="grad">أذكى بكثير.</span>',
-      sub: 'كل الموردين، كل الأسعار، كل البونص… مقارنة لك في ثانية واحدة. شاهد الإعلان في 60 ثانية واحجز مكانك قبل الإطلاق.',
+      title: 'صيدليتك… <span class="grad">أذكى.</span>',
+      sub: 'كل الموردين والأسعار والبونص… في ثانية واحدة.',
       loading: 'جارٍ تجهيز الفيديو…',
       loadingVideo: 'جارٍ تحميل الفيديو…',
       play: 'شغّل الفيديو',
@@ -41,7 +41,7 @@
       hint: 'يكفي البريد الإلكتروني أو رقم الهاتف.',
       hintOk: 'تمام، هذا كل ما نحتاجه.',
       submit: 'انضم لقائمة الانتظار',
-      fine: 'نستخدم بياناتك فقط للتواصل معك بخصوص Smart Bonus.',
+      fine: 'نستخدم بياناتك فقط للتواصل معك بخصوص <span class="nw">Smart Bonus</span>.',
       back: 'العودة للفيديو',
       doneTitle: 'تم تسجيلك بنجاح!',
       doneText: 'شكرًا لانضمامك، سنتواصل معك فور إطلاق Smart Bonus.',
@@ -60,8 +60,8 @@
       docTitle: 'Smart Bonus | The smartest way to source medicines',
       navCta: 'Join the waitlist',
       eyebrow: 'Early access is open',
-      title: 'Your pharmacy is about to get <span class="grad">a lot smarter.</span>',
-      sub: 'Every supplier, every price, every bonus — compared for you in one second. Watch the 60-second reveal and grab your spot before we launch.',
+      title: 'Your pharmacy, <span class="grad">smarter.</span>',
+      sub: 'Every supplier, price and bonus — in one second.',
       loading: 'Getting the video ready…',
       loadingVideo: 'Loading the video…',
       play: 'Play the 60-second video',
@@ -90,7 +90,7 @@
       hint: 'Email or phone — one is enough.',
       hintOk: 'Perfect — that’s all we need.',
       submit: 'Join the waitlist',
-      fine: "We'll only use your details to contact you about Smart Bonus.",
+      fine: 'We’ll only use your details to contact you about <span class="nw">Smart Bonus</span>.',
       back: 'Back to the video',
       doneTitle: 'You’re on the list!',
       doneText: 'Thanks for joining. We’ll reach out the moment Smart Bonus opens.',
@@ -172,7 +172,11 @@
   video.addEventListener('error', () => { frame.classList.remove('is-loading', 'is-buffering'); player.classList.remove('is-playing'); });
   video.addEventListener('play', () => player.classList.add('is-playing'));
   video.addEventListener('ended', () => { video.controls = false; endCard.hidden = false; });
-  $('#playBtn').addEventListener('click', startVideo);
+  $('#playBtn').addEventListener('click', (e) => { e.stopPropagation(); startVideo(); });
+  frame.addEventListener('click', (e) => {
+    if (player.classList.contains('is-playing') || !endCard.hidden || e.target.closest('button')) return;
+    startVideo();
+  });
   $('#replay').addEventListener('click', () => { video.currentTime = 0; startVideo(); });
 
   /* cursor spotlight + gentle tilt (desktop only) */

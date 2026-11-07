@@ -17,7 +17,8 @@ body{margin:0;min-height:100vh;font-family:"Readex",system-ui,sans-serif;color:v
   background:linear-gradient(100deg,#4A1FC4,var(--violet) 50%,#0FB89E);box-shadow:0 10px 30px rgba(109,59,255,.4)}
 .btn--ghost{background:rgba(255,255,255,.05);border:1.5px solid var(--line);box-shadow:none;height:40px;font-size:14px}
 .btn--ghost:hover{border-color:rgba(143,107,255,.6)}
-input,select{height:46px;padding:0 14px;border-radius:12px;border:1.5px solid var(--line);background:rgba(255,255,255,.05);color:#fff;font:inherit;outline:none}
+input,select{height:46px;padding:0 14px;border-radius:12px;border:1.5px solid rgba(205,203,218,.20);background:rgba(140,138,158,.13);color:#fff;font:inherit;outline:none}
+input::placeholder{color:#9593A5}
 input:focus,select:focus{border-color:#8F6BFF;box-shadow:0 0 0 4px rgba(109,59,255,.18)}
 select option{color:#000}
 .err{padding:10px 12px;border-radius:10px;font-size:14px;color:#FFD3D9;background:rgba(255,107,125,.12);border:1px solid rgba(255,107,125,.35)}

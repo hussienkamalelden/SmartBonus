@@ -29,7 +29,7 @@
       <td dir="ltr">${r.email ? `<a href="mailto:${esc(r.email)}" style="color:inherit">${esc(r.email)}</a>` : '<span class="muted">—</span>'}</td>
       <td dir="ltr">${r.phone ? `<a href="tel:${esc(r.phone)}" style="color:inherit">${esc(r.phone)}</a>` : '<span class="muted">—</span>'}</td>
       <td>${esc(r.country) || '<span class="muted">—</span>'}</td>
-      <td>${esc((r.created_at || '').replace('T', ' ').replace('Z', ''))}</td></tr>`).join('');
+      <td><bdi dir="ltr">${esc((r.created_at || '').replace('T', ' ').replace('Z', ''))}</bdi></td></tr>`).join('');
     $('#empty').hidden = list.length > 0;
     $('#shown').textContent = `المعروض: ${list.length}`;
   }
