@@ -3,23 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Smart Bonus | الطريقة الأذكى لتوريد الأدوية</title>
-  <meta name="description" content="Smart Bonus يقارن لك عروض كل الموردين ويحسب البونص ويقترح البدائل في ثانية. شاهد الإعلان في 60 ثانية وانضم لقائمة الانتظار.">
-  <meta name="theme-color" content="#0B0726">
+  <title>Smart Bonus | منصة المشتريات الذكية للقطاع الصحي</title>
+  <meta name="description" content="Smart Bonus منظومة رقمية للمشتريات الذكية تربط الصيدليات بالموردين: مقارنة العروض والبونص في ثانية، وطلبات أكثر للموردين. انضم لقائمة الانتظار.">
+  <meta name="theme-color" content="#F5F5F8">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ar_AR">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:title" content="Smart Bonus | صيدليتك على وشك أن تصبح أذكى بكثير">
-  <meta property="og:description" content="شاهد الإعلان في 60 ثانية واحجز مكانك في قائمة الانتظار.">
+  <meta property="og:title" content="Smart Bonus | منصة المشتريات الذكية للقطاع الصحي">
+  <meta property="og:description" content="للموردين والصيدليات: سجّل الآن في قائمة الانتظار.">
   <meta property="og:image" content="/assets/img/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/Alexandria-Bold.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="/assets/fonts/ReadexPro-Regular.woff" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="/assets/video/poster.jpg" as="image">
   <link rel="stylesheet" href="/css/styles.css">
   <script>
-    // pick language before first paint (default: Arabic)
     (function () {
       var l = 'ar';
       try {
@@ -30,90 +27,144 @@
     })();
   </script>
 </head>
-<body>
-  <!-- animated background -->
+<body class="page-home">
   <div class="bg" aria-hidden="true">
+    <div class="bg__wash"></div>
     <div class="bg__grid"></div>
-    <div class="bg__orb bg__orb--1"></div>
-    <div class="bg__orb bg__orb--2"></div>
-    <div class="bg__orb bg__orb--3"></div>
     <div class="bg__caps" id="caps"></div>
     <div class="bg__spot" id="spot"></div>
   </div>
 
   <header class="top">
     <a class="brand" href="/" aria-label="Smart Bonus">
-      <img src="/assets/img/logo-mark.svg" alt="" width="40" height="40">
+      <img src="/assets/img/logo-mark.svg" alt="" width="38" height="38">
       <span class="wordmark">Smart <b>Bonus</b></span>
     </a>
-    <div class="top__actions">
-      <button class="lang" id="langBtn" type="button" aria-label="Switch language">
+    <nav class="top__nav">
+      <a class="top__link" href="/about/" data-i18n="navAbout">من نحن</a>
+      <button class="lang" id="langBtn" type="button">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.4 2.4 3.6 5.3 3.6 8.6s-1.2 6.2-3.6 8.6c-2.4-2.4-3.6-5.3-3.6-8.6S9.6 5.8 12 3.4z"/></svg>
         <span id="langLabel">English</span>
       </button>
-      <button class="btn btn--ghost btn--sm top__cta" data-open-waitlist data-i18n="navCta">انضم لقائمة الانتظار</button>
-    </div>
+    </nav>
   </header>
 
-  <main class="hero">
-    <div class="hero__intro">
-      <h1 class="hero__title reveal" style="--d:0" data-i18n-html="title">صيدليتك… <span class="grad">أذكى.</span></h1>
-      <p class="hero__sub reveal" style="--d:1" data-i18n="sub">كل الموردين والأسعار والبونص… في ثانية واحدة.</p>
+  <main class="hero" id="hero" data-aud="supplier">
+    <!-- audience switch -->
+    <div class="aud reveal" style="--d:0" role="tablist" data-i18n-aria="audAria" aria-label="اختر نوع حسابك">
+      <button class="aud__btn" role="tab" id="tabSupplier" data-aud="supplier" aria-selected="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 6.5h10.6v9.6H2.8z"/><path d="M13.4 9.6h4.1l3.1 3.3v3.2h-7.2"/><circle cx="7" cy="17.6" r="1.9"/><circle cx="17.2" cy="17.6" r="1.9"/></svg>
+        <span data-i18n="tabSupplier">أنا مورّد</span>
+      </button>
+      <button class="aud__btn" role="tab" id="tabPharmacy" data-aud="pharmacy" aria-selected="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 21V8.5L12 3l8.5 5.5V21"/><path d="M9 21v-6h6v6M12 7.5v4M10 9.5h4"/></svg>
+        <span data-i18n="tabPharmacy">أنا صيدلية</span>
+      </button>
+      <span class="aud__pill" aria-hidden="true"></span>
     </div>
 
-    <section class="player reveal" style="--d:2" aria-label="Smart Bonus video">
+    <div class="hero__intro">
+      <h1 class="hero__title reveal" style="--d:1" id="title">صيدليات أكثر… وطلبات أكثر… <span class="grad">بلا مجهود.</span></h1>
+      <p class="hero__sub reveal" style="--d:2" id="sub">اعرض مخزونك، نافس بذكاء، ودع الطلبات تأتي إليك.</p>
+    </div>
+
+    <section class="player reveal" style="--d:3" aria-label="Smart Bonus video">
       <div class="player__glow" aria-hidden="true"></div>
-      <div class="player__frame is-loading" id="tilt">
-        <video id="intro" preload="none" playsinline
-               poster="/assets/video/poster.jpg"
-               data-src="/assets/video/smartbonus-intro.mp4"></video>
+      <div class="player__bezel">
+        <div class="player__frame is-loading" id="tilt">
+          <video id="intro" preload="none" playsinline></video>
 
-        <!-- loading state (until the poster / video is ready) -->
-        <div class="loader" id="loader" aria-hidden="true">
-          <div class="loader__shimmer"></div>
-          <div class="loader__mark">
-            <img src="/assets/img/logo-mark.svg" alt="" width="72" height="72">
-            <span class="loader__orbit"></span>
+          <!-- loading -->
+          <div class="loader" aria-hidden="true">
+            <div class="loader__shimmer"></div>
+            <div class="loader__mark"><img src="/assets/img/logo-mark.svg" alt="" width="64" height="64"><span class="loader__orbit"></span></div>
+            <p class="loader__text" data-i18n="loading">جارٍ تجهيز الفيديو…</p>
+            <div class="loader__bar"><span></span></div>
           </div>
-          <p class="loader__text" data-i18n="loading">جارٍ تجهيز الفيديو…</p>
-          <div class="loader__bar"><span></span></div>
-        </div>
 
-        <button class="player__play" id="playBtn" data-i18n-aria="play" aria-label="شغّل الفيديو">
-          <span class="player__ring"></span><span class="player__ring player__ring--2"></span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
-        </button>
-        <div class="player__badges" id="badges">
-          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.2 2"/></svg><span data-i18n="chipTime">60 ثانية</span></span>
-          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg><span data-i18n="chipSound">شغّل الصوت</span></span>
-        </div>
-        <div class="player__end" id="endCard" hidden>
-          <p class="player__end-title" data-i18n="endTitle">جاهز تشتري بذكاء؟</p>
-          <div class="player__end-actions">
-            <button class="btn btn--primary" data-open-waitlist data-i18n="endCta">انضم لقائمة الانتظار</button>
-            <button class="btn btn--ghost" id="replay">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/></svg><span data-i18n="replay">إعادة التشغيل</span>
-            </button>
+          <!-- coming soon (when an audience has no video yet) -->
+          <div class="soon" aria-live="polite">
+            <div class="soon__mark"><img src="/assets/img/logo-mark.svg" alt="" width="58" height="58"></div>
+            <p class="soon__title" data-i18n="soonTitle">فيديو الموردين في الطريق…</p>
+            <p class="soon__sub" data-i18n="soonSub">سجّل الآن وكن أول من يشاهده.</p>
+            <ul class="soon__chips">
+              <li data-i18n="soon1">رادار النواقص</li>
+              <li data-i18n="soon2">مصفاة الرواكد</li>
+              <li data-i18n="soon3">مؤشر التنافسية</li>
+              <li data-i18n="soon4">تسوية تلقائية</li>
+            </ul>
+          </div>
+
+          <button class="player__play" id="playBtn" data-i18n-aria="play" aria-label="شغّل الفيديو">
+            <span class="player__ring"></span><span class="player__ring player__ring--2"></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+          </button>
+          <div class="player__badges">
+            <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.2 2"/></svg><span data-i18n="chipTime">60 ثانية</span></span>
+            <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg><span data-i18n="chipSound">شغّل الصوت</span></span>
+          </div>
+          <div class="player__end" id="endCard" hidden>
+            <p class="player__end-title" id="endTitle"></p>
+            <div class="player__end-actions">
+              <button class="btn btn--primary" data-open-waitlist><span class="js-cta"></span></button>
+              <button class="btn btn--light" id="replay">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/></svg><span data-i18n="replay">إعادة التشغيل</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="hero__cta reveal" style="--d:3">
-      <button class="btn btn--primary btn--lg" data-open-waitlist data-role="pharmacy">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 21V8.5L12 3l8.5 5.5V21"/><path d="M9 21v-6h6v6M12 7.5v4M10 9.5h4"/></svg>
-        <span data-i18n="ctaPharmacy">أنا صيدلية</span>
+    <div class="hero__cta reveal" style="--d:4">
+      <button class="btn btn--primary btn--lg" data-open-waitlist>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="js-cta">سجّل كمورّد الآن</span>
       </button>
-      <button class="btn btn--glass btn--lg" data-open-waitlist data-role="supplier">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 6.5h10.6v9.6H2.8z"/><path d="M13.4 9.6h4.1l3.1 3.3v3.2h-7.2"/><circle cx="7" cy="17.6" r="1.9"/><circle cx="17.2" cy="17.6" r="1.9"/></svg>
-        <span data-i18n="ctaSupplier">أنا مورّد</span>
-      </button>
+      <p class="trustline">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l7.6 2.9v5.9c0 4.7-3.2 8.3-7.6 9.9-4.4-1.6-7.6-5.2-7.6-9.9V5.7z"/><path d="M8.6 12.2l2.4 2.4 4.4-4.6"/></svg>
+        <span data-i18n-html="trustline">تطوير <b>شركة الريان لتقنية المعلومات</b> · بالشراكة مع <b>شركة الفاروق لاستيراد وتوريد الأدوية</b></span>
+      </p>
     </div>
-
   </main>
 
   <footer class="foot">
-    <span>© <span id="year">2026</span> Smart Bonus. <span data-i18n="rights">جميع الحقوق محفوظة.</span></span>
+    <div class="foot__grid">
+      <div class="foot__col foot__brand">
+        <a class="brand brand--light" href="/" aria-label="Smart Bonus"><img src="/assets/img/logo-mark.svg" alt="" width="36" height="36"><span class="wordmark">Smart <b>Bonus</b></span></a>
+        <p class="foot__tag" data-i18n="footTag">اشترِ بذكاء. قارن بثقة. واستفد أكثر.</p>
+        <a class="foot__more" href="/about/"><span data-i18n="footAbout">تعرّف علينا أكثر</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12H5M11 5.8 4.8 12l6.2 6.2"/></svg></a>
+      </div>
+
+      <div class="foot__col">
+        <h3 data-i18n="footGroup">منظومة مؤسسية متكاملة</h3>
+        <ul class="orgs">
+          <li>
+            <span class="orgs__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"/><path d="M8.5 20h7M12 16v4M8.5 9l-2 1.8 2 1.8M15.5 9l2 1.8-2 1.8M13 8.5l-2 4.6"/></svg></span>
+            <span><b data-i18n="orgRayan">شركة الريان لتقنية المعلومات</b><small data-i18n="orgRayanRole">الذراع التقني · تطوير وتشغيل المنصة</small></span>
+          </li>
+          <li>
+            <span class="orgs__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.8 12 3.2l8.5 4.6v8.4L12 20.8l-8.5-4.6z"/><path d="M3.5 7.8 12 12.4l8.5-4.6M12 12.4v8.4"/></svg></span>
+            <span><b data-i18n="orgFarouk">شركة الفاروق لاستيراد وتوريد الأدوية والمستلزمات الطبية</b><small data-i18n="orgFaroukRole">الذراع التجاري والتوريدي</small></span>
+          </li>
+        </ul>
+        <p class="legal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l7.6 2.9v5.9c0 4.7-3.2 8.3-7.6 9.9-4.4-1.6-7.6-5.2-7.6-9.9V5.7z"/><path d="M8.6 12.2l2.4 2.4 4.4-4.6"/></svg><span data-i18n="legal">الإجراءات والمستندات القانونية للشركتين مكتملة</span></p>
+      </div>
+
+      <div class="foot__col">
+        <h3 data-i18n="footContact">تواصل معنا</h3>
+        <ul class="contact">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 3.5h3l1.8 4.6-2.3 1.5a11.5 11.5 0 0 0 6.4 6.4l1.5-2.3 4.6 1.8v3a2 2 0 0 1-2 2C10.2 20.5 3.5 13.8 3.5 5.5a2 2 0 0 1 2-2z"/></svg><a href="tel:+218910202873" dir="ltr">+218 91 020 2873</a></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-i18n="addr1">شارع الجرابة - طرابلس - ليبيا</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg><span data-i18n="addr2">أرض الرحبة - بنغازي - ليبيا</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© <span class="js-year">2026</span> Smart Bonus. <span data-i18n="rights">جميع الحقوق محفوظة.</span></span>
+      <a href="/about/" data-i18n="navAbout">من نحن</a>
+    </div>
   </footer>
 
   <!-- Waitlist modal -->
@@ -125,50 +176,36 @@
       </button>
 
       <div class="wl" id="wlForm">
-        <h2 id="wlTitle" data-i18n="mTitle">احجز مكانك مبكرًا</h2>
-
+        <span class="wl__role" id="wlRole"></span>
+        <h2 id="wlTitle"></h2>
         <form id="form" novalidate>
-          <fieldset class="seg">
-            <input type="radio" name="role" id="rPharmacy" value="pharmacy" checked>
-            <label for="rPharmacy" data-i18n="rolePharmacy">صيدلية</label>
-            <input type="radio" name="role" id="rSupplier" value="supplier">
-            <label for="rSupplier" data-i18n="roleSupplier">مورّد</label>
-            <span class="seg__pill" aria-hidden="true"></span>
-          </fieldset>
-
           <div class="field">
-            <label for="name"><span data-i18n="fName">الاسم بالكامل</span> <span class="opt" data-i18n="optional">(اختياري)</span></label>
-            <input id="name" name="name" type="text" autocomplete="name" maxlength="100" data-i18n-ph="phName" placeholder="مثال: د. أحمد علي">
+            <label for="name"><span id="nameLabel"></span> <span class="opt" data-i18n="optional">(اختياري)</span></label>
+            <input id="name" name="name" type="text" autocomplete="organization" maxlength="100">
           </div>
           <div class="field">
             <label for="email"><span data-i18n="fEmail">البريد الإلكتروني</span> <span class="req" data-req="email">*</span><span class="opt" data-opt="email" data-i18n="optional" hidden>(اختياري)</span></label>
-            <input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@pharmacy.com" dir="ltr">
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="name@company.com" dir="ltr">
           </div>
           <div class="field">
             <label for="phone"><span data-i18n="fPhone">رقم الهاتف / واتساب</span> <span class="req" data-req="phone">*</span><span class="opt" data-opt="phone" data-i18n="optional" hidden>(اختياري)</span></label>
             <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="25" placeholder="+218 91 234 5678" dir="ltr">
           </div>
-          <p class="hint" id="hint">يكفي البريد الإلكتروني أو رقم الهاتف.</p>
-
-          <!-- honeypot -->
+          <p class="hint" id="hint"></p>
           <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-
           <p class="err" id="err" role="alert" hidden></p>
           <button class="btn btn--primary btn--block" type="submit" id="submit">
-            <span class="btn__label" data-i18n="submit">انضم لقائمة الانتظار</span>
-            <span class="btn__spin" aria-hidden="true"></span>
+            <span class="btn__label js-cta"></span><span class="btn__spin" aria-hidden="true"></span>
           </button>
           <p class="fine" data-i18n-html="fine">نستخدم بياناتك فقط للتواصل معك بخصوص <span class="nw">Smart Bonus</span>.</p>
         </form>
       </div>
 
       <div class="done" id="wlDone" hidden>
-        <div class="done__badge" aria-hidden="true">
-          <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7.5 7.5L38 19"/></svg>
-        </div>
+        <div class="done__badge" aria-hidden="true"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7.5 7.5L38 19"/></svg></div>
         <h2 id="doneTitle"></h2>
         <p id="doneText"></p>
-        <button class="btn btn--glass" data-close data-i18n="back">العودة للفيديو</button>
+        <button class="btn btn--light" data-close data-i18n="back">العودة للصفحة</button>
       </div>
     </div>
   </div>
