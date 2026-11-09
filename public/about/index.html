@@ -31,22 +31,24 @@
 
   <header class="top">
     <a class="brand" href="/" aria-label="Smart Bonus">
-      <img src="/assets/img/logo-mark.svg" alt="" width="38" height="38">
+      <img src="/assets/img/logo-mark.svg" alt="" width="36" height="36">
       <span class="wordmark">Smart <b>Bonus</b></span>
     </a>
-    <nav class="top__nav">
-      <a class="top__link" href="/" data-i18n="navHome">الرئيسية</a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav__link" href="/" data-i18n="navHome">الرئيسية</a>
+      <a class="nav__link is-active" aria-current="page" href="/about/" data-i18n="navAbout">من نحن</a>
+    </nav>
+    <div class="top__end">
       <button class="lang" id="langBtn" type="button">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.4 2.4 3.6 5.3 3.6 8.6s-1.2 6.2-3.6 8.6c-2.4-2.4-3.6-5.3-3.6-8.6S9.6 5.8 12 3.4z"/></svg>
         <span id="langLabel">English</span>
       </button>
-    </nav>
+    </div>
   </header>
 
   <main class="about">
     <!-- hero -->
     <section class="ab-hero">
-      <p class="eyebrow reveal" style="--d:0"><span class="eyebrow__dot"></span><span data-i18n="abEyebrow">من نحن</span></p>
       <h1 class="ab-hero__title reveal" style="--d:1" data-i18n-html="abTitle">نعيد ابتكار <span class="grad">طريقة الشراء</span> في القطاع الصحي.</h1>
       <p class="ab-hero__lead reveal" style="--d:2" data-i18n-html="abLead"><b>Smart Bonus</b> منظومة رقمية متكاملة للمشتريات الذكية، تهدف إلى تطوير طريقة حصول الصيدليات والعيادات والمختبرات على احتياجاتها من الأدوية والمستلزمات الطبية.</p>
       <ul class="ab-who reveal" style="--d:3">
@@ -91,7 +93,6 @@
       <div class="orgmap reveal-on-scroll">
         <article class="card org">
           <span class="org__role" data-i18n="roleTech">الذراع التقني</span>
-          <span class="org__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"/><path d="M8.5 20h7M12 16v4M8.5 9l-2 1.8 2 1.8M15.5 9l2 1.8-2 1.8M13 8.5l-2 4.6"/></svg></span>
           <h3 data-i18n="orgRayan">شركة الريان لتقنية المعلومات</h3>
           <p data-i18n="orgRayanD">المسؤولة عن تطوير التطبيقات والأنظمة الرقمية، وإدارة البنية التقنية وأدوات المقارنة والتحليل الذكي.</p>
         </article>
@@ -104,15 +105,11 @@
 
         <article class="card org">
           <span class="org__role org__role--teal" data-i18n="roleSupply">الذراع التجاري والتوريدي</span>
-          <span class="org__ico org__ico--teal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.8 12 3.2l8.5 4.6v8.4L12 20.8l-8.5-4.6z"/><path d="M3.5 7.8 12 12.4l8.5-4.6M12 12.4v8.4"/></svg></span>
           <h3 data-i18n="orgFarouk">شركة الفاروق لاستيراد وتوريد الأدوية والمستلزمات الطبية</h3>
           <p data-i18n="orgFaroukD">المتخصصة في استيراد وتوريد الأدوية والمستلزمات الطبية، وبناء العلاقات مع الموردين وشركات الأدوية.</p>
         </article>
       </div>
-      <p class="legal-box reveal-on-scroll">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l7.6 2.9v5.9c0 4.7-3.2 8.3-7.6 9.9-4.4-1.6-7.6-5.2-7.6-9.9V5.7z"/><path d="M8.6 12.2l2.4 2.4 4.4-4.6"/></svg>
-        <span data-i18n="legalLong">تم استكمال الإجراءات والمستندات القانونية الخاصة بالشركتين، بما يضمن وضوح الإطار المؤسسي والتنظيمي لكل نشاط.</span>
-      </p>
+      <p class="legal-note reveal-on-scroll" data-i18n="legalLong">تم استكمال الإجراءات والمستندات القانونية الخاصة بالشركتين، بما يضمن وضوح الإطار المؤسسي والتنظيمي لكل نشاط.</p>
     </section>
 
     <!-- vision & mission -->
@@ -146,23 +143,24 @@
     <div class="foot__grid">
       <div class="foot__col foot__brand">
         <a class="brand brand--light" href="/" aria-label="Smart Bonus"><img src="/assets/img/logo-mark.svg" alt="" width="36" height="36"><span class="wordmark">Smart <b>Bonus</b></span></a>
-        <p class="foot__tag" data-i18n="footTag">اشترِ بذكاء. قارن بثقة. واستفد أكثر.</p>
-        <a class="foot__more" href="/"><span data-i18n="footHome">العودة للرئيسية</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12H5M11 5.8 4.8 12l6.2 6.2"/></svg></a>
+        <p class="foot__slogan" data-i18n="footTag">اشترِ بذكاء. قارن بثقة. واستفد أكثر.</p>
+        <p class="foot__desc" data-i18n="footDesc">منصة المشتريات الذكية للقطاع الصحي.</p>
+      </div>
+      <div class="foot__col">
+        <h3 data-i18n="footLinks">روابط سريعة</h3>
+        <ul class="links">
+          <li><a href="/" data-i18n="navHome">الرئيسية</a></li>
+          <li><a href="/about/" data-i18n="navAbout">من نحن</a></li>
+          <li><a href="/?join=supplier#supplier" data-i18n="joinSupplier">سجّل كمورّد</a></li>
+          <li><a href="/?join=pharmacy#pharmacy" data-i18n="joinPharmacy">سجّل صيدليتك</a></li>
+        </ul>
       </div>
       <div class="foot__col">
         <h3 data-i18n="footGroup">منظومة مؤسسية متكاملة</h3>
         <ul class="orgs">
-          <li>
-            <span class="orgs__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"/><path d="M8.5 20h7M12 16v4M8.5 9l-2 1.8 2 1.8M15.5 9l2 1.8-2 1.8M13 8.5l-2 4.6"/></svg></span>
-            <span><b data-i18n="orgRayan">شركة الريان لتقنية المعلومات</b><small data-i18n="orgRayanRole">الذراع التقني · تطوير وتشغيل المنصة</small></span>
-          </li>
-          <li>
-            <span class="orgs__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.8 12 3.2l8.5 4.6v8.4L12 20.8l-8.5-4.6z"/><path d="M3.5 7.8 12 12.4l8.5-4.6M12 12.4v8.4"/></svg></span>
-            <span><b data-i18n="orgFarouk">شركة الفاروق لاستيراد وتوريد الأدوية والمستلزمات الطبية</b><small data-i18n="orgFaroukRole">الذراع التجاري والتوريدي</small></span>
-          </li>
+          <li><b data-i18n="orgRayan">شركة الريان لتقنية المعلومات</b><span data-i18n="orgRayanRole">الذراع التقني · تطوير وتشغيل المنصة</span></li>
+          <li><b data-i18n="orgFarouk">شركة الفاروق لاستيراد وتوريد الأدوية والمستلزمات الطبية</b><span data-i18n="orgFaroukRole">الذراع التجاري والتوريدي</span></li>
         </ul>
-        <p class="legal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l7.6 2.9v5.9c0 4.7-3.2 8.3-7.6 9.9-4.4-1.6-7.6-5.2-7.6-9.9V5.7z"/><path d="M8.6 12.2l2.4 2.4 4.4-4.6"/></svg><span data-i18n="legal">الإجراءات والمستندات القانونية للشركتين مكتملة</span></p>
       </div>
       <div class="foot__col">
         <h3 data-i18n="footContact">تواصل معنا</h3>
@@ -174,8 +172,11 @@
       </div>
     </div>
     <div class="foot__bar">
-      <span>© <span class="js-year">2026</span> Smart Bonus. <span data-i18n="rights">جميع الحقوق محفوظة.</span></span>
-      <a href="/" data-i18n="navHome">الرئيسية</a>
+      <div class="foot__bar-row">
+        <span>© <span class="js-year">2026</span> Smart Bonus. <span data-i18n="rights">جميع الحقوق محفوظة.</span></span>
+        <span class="foot__credit" data-i18n-html="credit">تطوير <b>شركة الريان لتقنية المعلومات</b> · بالشراكة مع <b>شركة الفاروق لاستيراد وتوريد الأدوية والمستلزمات الطبية</b></span>
+      </div>
+      <p class="foot__legal" data-i18n="legal">تم استكمال الإجراءات والمستندات القانونية الخاصة بالشركتين.</p>
     </div>
   </footer>
 

@@ -47,11 +47,12 @@
         bad_phone: 'رقم الهاتف غير صحيح (من 7 إلى 15 رقمًا).', network: 'تعذّر الاتصال بالخادم، حاول مرة أخرى بعد لحظات.',
         server: 'حدث خطأ أثناء الحفظ، حاول مرة أخرى.'
       },
-      footTag: 'اشترِ بذكاء. قارن بثقة. واستفد أكثر.', footAbout: 'تعرّف علينا أكثر', footHome: 'العودة للرئيسية',
+      footTag: 'اشترِ بذكاء. قارن بثقة. واستفد أكثر.', footDesc: 'منصة المشتريات الذكية للقطاع الصحي.', footLinks: 'روابط سريعة',
+      credit: 'تطوير <b>شركة الريان لتقنية المعلومات</b> · بالشراكة مع <b>شركة الفاروق لاستيراد وتوريد الأدوية والمستلزمات الطبية</b>',
       footGroup: 'منظومة مؤسسية متكاملة', footContact: 'تواصل معنا', rights: 'جميع الحقوق محفوظة.',
       orgRayan: 'شركة الريان لتقنية المعلومات', orgRayanRole: 'الذراع التقني · تطوير وتشغيل المنصة',
       orgFarouk: 'شركة الفاروق لاستيراد وتوريد الأدوية والمستلزمات الطبية', orgFaroukRole: 'الذراع التجاري والتوريدي',
-      legal: 'الإجراءات والمستندات القانونية للشركتين مكتملة',
+      legal: 'تم استكمال الإجراءات والمستندات القانونية الخاصة بالشركتين.',
       addr1: 'شارع الجرابة - طرابلس - ليبيا', addr2: 'أرض الرحبة - بنغازي - ليبيا',
       /* about */
       abEyebrow: 'من نحن',
@@ -106,11 +107,12 @@
         bad_phone: 'Please enter a valid phone number (7–15 digits).', network: 'Can’t reach the server right now. Please try again in a moment.',
         server: 'Something went wrong while saving. Please try again.'
       },
-      footTag: 'Buy smart. Compare with confidence. Get more.', footAbout: 'Learn more about us', footHome: 'Back to home',
+      footTag: 'Buy smarter. Compare with confidence. Gain more.', footDesc: 'The smart procurement platform for healthcare.', footLinks: 'Quick links',
+      credit: 'Developed by <b>Al Rayan Information Technology Co.</b> · in partnership with <b>Al Farouk Co. for Import & Supply of Medicines and Medical Supplies</b>',
       footGroup: 'An integrated corporate structure', footContact: 'Contact us', rights: 'All rights reserved.',
       orgRayan: 'Al Rayan Information Technology Co.', orgRayanRole: 'Technology arm · builds and runs the platform',
       orgFarouk: 'Al Farouk Co. for Import & Supply of Medicines and Medical Supplies', orgFaroukRole: 'Commercial & supply arm',
-      legal: 'All legal procedures for both companies are complete',
+      legal: 'All legal procedures and documents for both companies have been completed.',
       addr1: 'Al Jaraba St., Tripoli, Libya', addr2: 'Ard Al Rahba, Benghazi, Libya',
       abEyebrow: 'About us',
       abTitle: 'Reinventing <span class="grad">how healthcare buys.</span>',
@@ -128,7 +130,7 @@
       legalLong: 'All legal procedures and documents for both companies have been completed, ensuring a clear corporate and regulatory framework for each activity.',
       visionT: 'Our vision', visionD: 'To become a leading platform for modernising healthcare procurement and supply — towards a more efficient, more transparent market.',
       missionT: 'Our mission', missionD: 'Empowering healthcare providers to buy smart by comparing prices and offers, connecting buyers with suppliers and improving procurement efficiency.',
-      closeT: 'Buy smart. Compare with confidence. Get more.', closeD: 'Towards a smarter future for healthcare procurement.',
+      closeT: 'Buy smarter. Compare with confidence. Gain more.', closeD: 'Towards a smarter future for healthcare procurement.',
       joinSupplier: 'Join as a supplier', joinPharmacy: 'Register your pharmacy'
     }
   };
