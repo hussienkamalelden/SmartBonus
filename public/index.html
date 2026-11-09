@@ -53,78 +53,71 @@
   </header>
 
   <main class="hero" id="hero" data-aud="supplier">
-    <div class="aud reveal" style="--d:0" role="tablist" data-i18n-aria="audAria" aria-label="اختر نوع حسابك">
-      <button class="aud__btn" role="tab" id="tabSupplier" data-aud="supplier" aria-selected="true">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 6.5h10.6v9.6H2.8z"/><path d="M13.4 9.6h4.1l3.1 3.3v3.2h-7.2"/><circle cx="7" cy="17.6" r="1.9"/><circle cx="17.2" cy="17.6" r="1.9"/></svg>
-        <span data-i18n="tabSupplier">أنا مورّد</span>
-      </button>
-      <button class="aud__btn" role="tab" id="tabPharmacy" data-aud="pharmacy" aria-selected="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 21V8.5L12 3l8.5 5.5V21"/><path d="M9 21v-6h6v6M12 7.5v4M10 9.5h4"/></svg>
-        <span data-i18n="tabPharmacy">أنا صيدلية</span>
-      </button>
-      <span class="aud__pill" aria-hidden="true"></span>
-    </div>
+    <section class="stage" id="stage" aria-label="Smart Bonus">
+      <div class="stage__grid">
+        <div class="stage__glow" aria-hidden="true"></div>
 
-    <div class="hero__intro">
-      <h1 class="hero__title reveal" style="--d:1" id="title">صيدليات أكثر… وطلبات أكثر… <span class="grad">بلا مجهود.</span></h1>
-      <p class="hero__sub reveal" style="--d:2" id="sub">اعرض مخزونك، نافس بذكاء، ودع الطلبات تأتي إليك.</p>
-    </div>
+        <!-- the screen: poster → video -->
+        <div class="stage__frame reveal" style="--d:0" id="frame">
+          <div class="stage__media" aria-hidden="true">
+            <img class="stage__poster" alt="" decoding="async">
+            <img class="stage__poster" alt="" decoding="async">
+          </div>
+          <video id="intro" preload="none" playsinline data-i18n-aria="videoAria" aria-label="فيديو تعريفي"></video>
+          <div class="stage__scrim" aria-hidden="true"></div>
 
-    <div class="hero__cta reveal" style="--d:3">
-      <button class="btn btn--primary btn--lg" data-open-waitlist>
-        <span class="js-cta">سجّل كمورّد الآن</span>
-        <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12H5M11 5.8 4.8 12l6.2 6.2"/></svg>
-      </button>
-    </div>
-
-    <section class="player reveal" style="--d:2" aria-label="Smart Bonus video">
-      <div class="player__glow" aria-hidden="true"></div>
-      <div class="player__bezel">
-        <div class="player__frame is-loading" id="tilt">
-          <video id="intro" preload="none" playsinline></video>
-
-          <!-- loading -->
           <div class="loader" aria-hidden="true">
-            <div class="loader__shimmer"></div>
             <div class="loader__mark"><img src="/assets/img/logo-mark.svg" alt="" width="64" height="64"><span class="loader__orbit"></span></div>
-            <p class="loader__text" data-i18n="loading">جارٍ تجهيز الفيديو…</p>
-            <div class="loader__bar"><span></span></div>
+            <p class="loader__text" data-i18n="loadingVideo">جارٍ تحميل الفيديو…</p>
           </div>
 
-          <!-- coming soon (when an audience has no video yet) -->
-          <div class="soon" aria-live="polite">
-            <div class="soon__mark"><img src="/assets/img/logo-mark.svg" alt="" width="58" height="58"></div>
-            <p class="soon__title" data-i18n="soonTitle">فيديو الموردين في الطريق…</p>
-            <p class="soon__sub" data-i18n="soonSub">سجّل الآن وكن أول من يشاهده.</p>
-            <ul class="soon__chips">
-              <li data-i18n="soon1">رادار النواقص</li>
-              <li data-i18n="soon2">مصفاة الرواكد</li>
-              <li data-i18n="soon3">مؤشر التنافسية</li>
-              <li data-i18n="soon4">تسوية تلقائية</li>
-            </ul>
-          </div>
-
-          <button class="player__play" id="playBtn" data-i18n-aria="play" aria-label="شغّل الفيديو">
-            <span class="player__ring"></span><span class="player__ring player__ring--2"></span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+          <!-- small screens: play button inside the screen -->
+          <button class="stage__play" id="playBtn" type="button" data-i18n-aria="watch" aria-label="شاهد الفيديو">
+            <span class="stage__play-btn"><span class="ring"></span><span class="ring ring--2"></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+            <span class="stage__play-label"><span class="js-watch">شاهد الفيديو</span><i></i><span class="lat">1:00</span></span>
           </button>
-          <div class="player__badges">
-            <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.2 2"/></svg><span data-i18n="chipTime">60 ثانية</span></span>
-            <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg><span data-i18n="chipSound">شغّل الصوت</span></span>
+
+          <!-- while playing -->
+          <div class="stage__bar">
+            <button class="btn btn--primary btn--sm" type="button" data-open-waitlist><span class="js-cta">سجّل كمورّد الآن</span></button>
+            <button class="stage__x" id="closeVideo" type="button" data-i18n-aria="closeVideo" aria-label="إغلاق الفيديو">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>
+            </button>
           </div>
-          <div class="player__end" id="endCard" hidden>
-            <p class="player__end-title" id="endTitle"></p>
-            <div class="player__end-actions">
-              <button class="btn btn--primary" data-open-waitlist><span class="js-cta"></span></button>
-              <button class="btn btn--light" id="replay">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/></svg><span data-i18n="replay">إعادة التشغيل</span>
-              </button>
-            </div>
+        </div>
+
+        <!-- the copy: over the screen on large widths, above it on small ones -->
+        <div class="stage__copy">
+          <div class="aud reveal" style="--d:1" role="tablist" data-i18n-aria="audAria" aria-label="اختر نوع حسابك">
+            <button class="aud__btn" role="tab" id="tabSupplier" type="button" data-aud="supplier" aria-selected="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 6.5h10.6v9.6H2.8z"/><path d="M13.4 9.6h4.1l3.1 3.3v3.2h-7.2"/><circle cx="7" cy="17.6" r="1.9"/><circle cx="17.2" cy="17.6" r="1.9"/></svg>
+              <span data-i18n="tabSupplier">أنا مورّد</span>
+            </button>
+            <button class="aud__btn" role="tab" id="tabPharmacy" type="button" data-aud="pharmacy" aria-selected="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 21V8.5L12 3l8.5 5.5V21"/><path d="M9 21v-6h6v6M12 7.5v4M10 9.5h4"/></svg>
+              <span data-i18n="tabPharmacy">أنا صيدلية</span>
+            </button>
+            <span class="aud__pill" aria-hidden="true"></span>
+          </div>
+
+          <h1 class="hero__title reveal" style="--d:2" id="title">صيدليات أكثر…<br>وطلبات أكثر…<br><span class="grad">بلا مجهود.</span></h1>
+          <p class="hero__sub reveal" style="--d:3" id="sub">اعرض مخزونك، نافس بذكاء، ودع الطلبات تأتي إليك.</p>
+
+          <div class="hero__actions reveal" style="--d:4">
+            <button class="btn btn--primary btn--lg" type="button" data-open-waitlist>
+              <span class="js-cta">سجّل كمورّد الآن</span>
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12H5M11 5.8 4.8 12l6.2 6.2"/></svg>
+            </button>
+            <button class="btn btn--glass btn--lg watch" type="button" id="watchBtn">
+              <span class="watch__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+              <span class="js-watch">شاهد الفيديو</span>
+              <span class="watch__meta lat" aria-hidden="true">1:00</span>
+            </button>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer class="foot">

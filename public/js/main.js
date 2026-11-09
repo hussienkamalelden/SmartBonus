@@ -6,11 +6,12 @@
   const finePointer = window.matchMedia('(pointer: fine)').matches;
 
   /* ================= videos per audience =================
-     To add the supplier video later: put the file in /assets/video/ and fill `video` + `poster`. */
+     poster: clean stage image, file = `${poster}-${rtl|ltr}[-2x].jpg` (phone on the side opposite the copy). */
   const AUD = {
-    supplier: { video: '', poster: '' },
-    pharmacy: { video: '/assets/video/smartbonus-intro.mp4', poster: '/assets/video/poster.jpg' }
+    supplier: { video: '/assets/video/smartbonus-supplier.mp4?v=1', poster: '/assets/video/stage-supplier' },
+    pharmacy: { video: '/assets/video/smartbonus-intro.mp4?v=3', poster: '/assets/video/stage-pharmacy' }
   };
+  const POSTER_V = '1';
 
   /* ================= translations ================= */
   const T = {
@@ -20,23 +21,21 @@
       langLabel: 'English', navAbout: 'من نحن', navHome: 'الرئيسية', audAria: 'اختر نوع حسابك',
       tabSupplier: 'أنا مورّد', tabPharmacy: 'أنا صيدلية',
       supplier: {
-        title: 'صيدليات أكثر… وطلبات أكثر… <span class="grad">بلا مجهود.</span>',
+        title: 'صيدليات أكثر…<br>وطلبات أكثر…<br><span class="grad">بلا مجهود.</span>',
         sub: 'اعرض مخزونك، نافس بذكاء، ودع الطلبات تأتي إليك.',
         cta: 'سجّل كمورّد الآن', end: 'جاهز تبيع أكثر؟', role: 'مورّد', mTitle: 'سجّل كمورّد',
         name: 'اسم الشركة أو المسؤول', ph: 'مثال: شركة النور للأدوية',
         done: 'شكرًا لانضمامك، سنتواصل معك فور فتح المنصة للموردين.'
       },
       pharmacy: {
-        title: 'كل الموردين… وأفضل عرض <span class="grad">في ثانية.</span>',
+        title: 'كل الموردين…<br>وأفضل عرض<br><span class="grad">في ثانية.</span>',
         sub: 'قارن الأسعار والبونص، واطلب بضغطة واحدة.',
         cta: 'سجّل صيدليتك الآن', end: 'جاهز تشتري بذكاء؟', role: 'صيدلية', mTitle: 'سجّل صيدليتك',
         name: 'اسم الصيدلية أو الصيدلي', ph: 'مثال: صيدلية الشفاء',
         done: 'شكرًا لانضمامك، سنتواصل معك فور إطلاق <span class="nw">Smart Bonus</span>.'
       },
-      loading: 'جارٍ تجهيز الفيديو…', loadingVideo: 'جارٍ تحميل الفيديو…', play: 'شغّل الفيديو',
-      chipTime: '60 ثانية', chipSound: 'شغّل الصوت', replay: 'إعادة التشغيل',
-      soonTitle: 'فيديو الموردين في الطريق…', soonSub: 'سجّل الآن وكن أول من يشاهده.',
-      soon1: 'رادار النواقص', soon2: 'مصفاة الرواكد', soon3: 'مؤشر التنافسية', soon4: 'تسوية تلقائية',
+      loadingVideo: 'جارٍ تحميل الفيديو…', watch: 'شاهد الفيديو', watchAgain: 'شاهد مرة أخرى',
+      closeVideo: 'إغلاق الفيديو', videoAria: 'فيديو تعريفي',
       trustline: 'تطوير <b>شركة الريان لتقنية المعلومات</b> · بالشراكة مع <b>شركة الفاروق لاستيراد وتوريد الأدوية</b>',
       close: 'إغلاق', optional: '(اختياري)', fEmail: 'البريد الإلكتروني', fPhone: 'رقم الهاتف / واتساب',
       hint: 'يكفي البريد الإلكتروني أو رقم الهاتف.', hintOk: 'تمام، هذا كل ما نحتاجه.',
@@ -80,23 +79,21 @@
       langLabel: 'عربي', navAbout: 'About us', navHome: 'Home', audAria: 'Choose your account type',
       tabSupplier: "I'm a supplier", tabPharmacy: "I'm a pharmacy",
       supplier: {
-        title: 'More pharmacies. More orders. <span class="grad">Zero chasing.</span>',
+        title: 'More pharmacies.<br>More orders.<br><span class="grad">Zero chasing.</span>',
         sub: 'Show your stock, compete smart, and let the orders come to you.',
         cta: 'Join as a supplier', end: 'Ready to sell more?', role: 'Supplier', mTitle: 'Join as a supplier',
         name: 'Company or contact name', ph: 'e.g. Al Noor Pharma',
         done: 'Thanks for joining. We’ll reach out as soon as the platform opens to suppliers.'
       },
       pharmacy: {
-        title: 'Every supplier. The best offer. <span class="grad">In one second.</span>',
+        title: 'Every supplier.<br>The best offer.<br><span class="grad">In one second.</span>',
         sub: 'Compare prices and bonuses, then order in one tap.',
         cta: 'Register your pharmacy', end: 'Ready to buy smarter?', role: 'Pharmacy', mTitle: 'Register your pharmacy',
         name: 'Pharmacy or pharmacist name', ph: 'e.g. Al Shifaa Pharmacy',
         done: 'Thanks for joining. We’ll reach out the moment <span class="nw">Smart Bonus</span> opens.'
       },
-      loading: 'Getting the video ready…', loadingVideo: 'Loading the video…', play: 'Play the video',
-      chipTime: '60 sec', chipSound: 'Sound on', replay: 'Replay',
-      soonTitle: 'The supplier video is on its way…', soonSub: 'Sign up now and be the first to watch it.',
-      soon1: 'Shortage radar', soon2: 'Slow-stock clearance', soon3: 'Competitiveness index', soon4: 'Automatic settlement',
+      loadingVideo: 'Loading the video…', watch: 'Watch the video', watchAgain: 'Watch again',
+      closeVideo: 'Close video', videoAria: 'Intro video',
       trustline: 'Built by <b>Al Rayan IT</b> · in partnership with <b>Al Farouk Medical Supply</b>',
       close: 'Close', optional: '(optional)', fEmail: 'Email', fPhone: 'Phone / WhatsApp',
       hint: 'Email or phone — one is enough.', hintOk: 'Perfect — that’s all we need.',
@@ -177,41 +174,53 @@
 
   if (!isHome) { applyLang(); return; }
 
-  /* ================= landing: audience + video ================= */
+  /* ================= landing: audience + stage ================= */
   const hero = $('#hero');
-  const player = $('.player');
-  const frame = $('#tilt');
-  const bezel = $('.player__bezel');
+  const stage = $('#stage');
+  const frame = $('#frame');
   const video = $('#intro');
-  const endCard = $('#endCard');
-  const loaderText = $('.loader__text');
+  const posters = $$('.stage__poster');
+  let posterIdx = 0, posterWant = '', ended = false, idleTimer = 0;
 
-  function loadPoster(src) {
-    frame.classList.add('is-loading');
-    loaderText.textContent = t('loading');
-    const img = new Image();
-    const done = () => { if (video.getAttribute('poster') === src) frame.classList.remove('is-loading'); };
-    video.setAttribute('poster', src);
-    img.onload = done; img.onerror = done; img.src = src;
-    if (img.complete) done();
+  function posterUrl() {
+    const dir = lang === 'ar' ? 'rtl' : 'ltr';
+    const hi = frame.clientWidth * (window.devicePixelRatio || 1) > 1100;
+    return `${AUD[aud].poster}-${dir}${hi ? '-2x' : ''}.jpg?v=${POSTER_V}`;
+  }
+  function showPoster() {
+    const url = posterUrl();
+    if (url === posterWant) return;
+    posterWant = url;
+    const cur = posters[posterIdx], next = posters[posterIdx ^ 1];
+    const swap = () => {
+      if (posterWant !== url) return;
+      next.classList.add('is-on'); cur.classList.remove('is-on'); posterIdx ^= 1;
+    };
+    if (next.getAttribute('src') === url && next.complete) { swap(); return; }
+    next.onload = swap;
+    next.src = url;
+  }
+
+  function updateWatch() { $$('.js-watch').forEach((e) => { e.textContent = ended ? t('watchAgain') : t('watch'); }); }
+
+  function setIdle(on) { stage.classList.toggle('is-idle', on); }
+  function armIdle() {
+    clearTimeout(idleTimer); setIdle(false);
+    if (stage.classList.contains('is-playing') && !video.paused) idleTimer = setTimeout(() => setIdle(true), 2200);
+  }
+
+  function stopVideo() {
+    clearTimeout(idleTimer);
+    if (!video.paused) video.pause();
+    video.controls = false;
+    stage.classList.remove('is-playing', 'has-started', 'is-loading', 'is-buffering', 'is-idle');
   }
 
   function setVideo() {
-    const cfg = AUD[aud];
-    video.pause();
+    stopVideo();
     video.removeAttribute('src'); video.load();
-    video.controls = false;
-    player.classList.remove('is-playing');
-    frame.classList.remove('is-buffering');
-    endCard.hidden = true;
-    if (!cfg.video) {
-      video.removeAttribute('poster');
-      frame.classList.remove('is-loading');
-      frame.classList.add('is-soon');
-    } else {
-      frame.classList.remove('is-soon');
-      loadPoster(cfg.poster);
-    }
+    ended = false; updateWatch();
+    showPoster();
   }
 
   function renderAud(animate) {
@@ -221,12 +230,13 @@
     const title = $('#title'), sub = $('#sub');
     title.innerHTML = a.title; sub.textContent = a.sub;
     $$('.js-cta').forEach((e) => { e.textContent = a.cta; });
-    $('#endTitle').textContent = a.end;
     $('#wlTitle').textContent = a.mTitle;
     const role = $('#wlRole'); role.textContent = a.role; role.classList.toggle('is-pharmacy', aud === 'pharmacy');
     $('#nameLabel').textContent = a.name;
     $('#name').placeholder = a.ph;
     if (animate && !reduceMotion) [title, sub].forEach((el) => { el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); });
+    updateWatch();
+    showPoster();
     syncRequired();
   }
 
@@ -242,32 +252,38 @@
   window.addEventListener('hashchange', () => setAud(location.hash.slice(1)));
 
   function startVideo() {
-    const cfg = AUD[aud];
-    if (!cfg.video) return;
-    endCard.hidden = true;
-    bezel.style.transform = '';
-    player.classList.add('is-playing');
+    stage.classList.add('is-playing');
+    frame.style.removeProperty('--px'); frame.style.removeProperty('--py');
     if (!video.getAttribute('src')) {
-      loaderText.textContent = t('loadingVideo');
-      frame.classList.add('is-loading');
-      video.src = cfg.video;
+      stage.classList.add('is-loading');
+      video.src = AUD[aud].video;
     }
+    if (ended) { try { video.currentTime = 0; } catch (e) {} ended = false; updateWatch(); }
     video.controls = true;
     const p = video.play();
-    if (p && p.catch) p.catch(() => { player.classList.remove('is-playing'); frame.classList.remove('is-loading'); });
+    if (p && p.catch) p.catch(() => stopVideo());
+    armIdle();
   }
-  video.addEventListener('playing', () => frame.classList.remove('is-loading', 'is-buffering'));
-  video.addEventListener('waiting', () => { if (player.classList.contains('is-playing')) frame.classList.add('is-buffering'); });
-  video.addEventListener('canplay', () => frame.classList.remove('is-buffering'));
-  video.addEventListener('error', () => { if (!video.getAttribute('src')) return; frame.classList.remove('is-loading', 'is-buffering'); player.classList.remove('is-playing'); });
-  video.addEventListener('play', () => player.classList.add('is-playing'));
-  video.addEventListener('ended', () => { video.controls = false; endCard.hidden = false; });
+  video.addEventListener('playing', () => { stage.classList.remove('is-loading', 'is-buffering'); stage.classList.add('has-started'); armIdle(); });
+  video.addEventListener('waiting', () => { if (stage.classList.contains('is-playing')) stage.classList.add('is-buffering'); });
+  video.addEventListener('canplay', () => stage.classList.remove('is-buffering'));
+  video.addEventListener('pause', () => { clearTimeout(idleTimer); setIdle(false); });
+  video.addEventListener('ended', () => { ended = true; stopVideo(); updateWatch(); });
+  video.addEventListener('error', () => { if (video.getAttribute('src')) stopVideo(); });
+
+  $('#watchBtn').addEventListener('click', startVideo);
   $('#playBtn').addEventListener('click', (e) => { e.stopPropagation(); startVideo(); });
+  $('#closeVideo').addEventListener('click', (e) => { e.stopPropagation(); stopVideo(); $('#watchBtn').focus({ preventScroll: true }); });
   frame.addEventListener('click', (e) => {
-    if (player.classList.contains('is-playing') || !endCard.hidden || e.target.closest('button')) return;
+    if (stage.classList.contains('is-playing') || e.target.closest('button')) return;
     startVideo();
   });
-  $('#replay').addEventListener('click', () => { video.currentTime = 0; startVideo(); });
+  stage.addEventListener('pointermove', armIdle, { passive: true });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.hidden && stage.classList.contains('is-playing')) stopVideo();
+  });
+  let rz = 0;
+  window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(showPoster, 200); });
 
   if (finePointer && !reduceMotion) {
     const spot = $('#spot');
@@ -279,14 +295,15 @@
         raf = 0;
         spot.style.opacity = '1';
         spot.style.transform = `translate(${mx}px,${my}px)`;
-        if (!player.classList.contains('is-playing')) {
-          const r = bezel.getBoundingClientRect();
-          const dx = (mx - (r.left + r.width / 2)) / r.width, dy = (my - (r.top + r.height / 2)) / r.height;
-          bezel.style.transform = `rotateX(${(-dy * 4).toFixed(2)}deg) rotateY(${(dx * 5).toFixed(2)}deg)`;
+        if (!stage.classList.contains('is-playing')) {
+          const r = frame.getBoundingClientRect();
+          const px = Math.max(-1, Math.min(1, (mx - (r.left + r.width / 2)) / (r.width / 2)));
+          const py = Math.max(-1, Math.min(1, (my - (r.top + r.height / 2)) / (r.height / 2)));
+          frame.style.setProperty('--px', px.toFixed(3)); frame.style.setProperty('--py', py.toFixed(3));
         }
       });
     }, { passive: true });
-    document.addEventListener('pointerleave', () => { spot.style.opacity = '0'; bezel.style.transform = ''; });
+    document.addEventListener('pointerleave', () => { spot.style.opacity = '0'; frame.style.removeProperty('--px'); frame.style.removeProperty('--py'); });
   }
 
   /* ================= modal + form ================= */
